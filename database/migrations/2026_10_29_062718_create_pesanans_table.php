@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pelanggan_id')->constrained('pelanggans');
+            $table->date('tanggal_pesan');
+            $table->integer('total_harga')->default(0);
+            $table->string('status')->default('diproses');
             $table->timestamps();
         });
     }
